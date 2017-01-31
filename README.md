@@ -35,6 +35,9 @@ nodemon
 ```
 
 
+## [Postman Api Collection](1) for easy usage
+
+
 Sample Model Creation
  
 ```
@@ -42,3 +45,4 @@ node_modules/.bin/sequelize model:create --name member --attributes "first_name:
 ```
 
 
+[1] : https://www.getpostman.com/collections/99968cec44dad662f97f
