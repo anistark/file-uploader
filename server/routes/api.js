@@ -30,6 +30,7 @@ router.post('/upload', uploadType, function(req,res, next) {
     var src = fs.createReadStream(tmp_path);
     var dest = fs.createWriteStream(target_path);
     src.pipe(dest);
+    fs.unlink(tmp_path); //deleting the tmp_path
     src.on('end', function() { res.send('complete'); });
     src.on('error', function(err) { res.send('error'); });
 });
