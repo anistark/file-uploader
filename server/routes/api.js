@@ -11,8 +11,12 @@ var uploadType = upload.single('image');
 
 
 router.get('/', function(req, res, next) {
-    var response = {};
-    console.log('in');
+    var response = {
+        'success' : true,
+        'data' : null,
+        'message' : 'You have successfully connected to the server!',
+        'error' : null
+    };
     res.json(response);
 });
 
@@ -31,8 +35,21 @@ router.post('/upload', uploadType, function(req,res, next) {
     var dest = fs.createWriteStream(target_path);
     src.pipe(dest);
     fs.unlink(tmp_path); //deleting the tmp_path
-    src.on('end', function() { res.send('complete'); });
-    src.on('error', function(err) { res.send('error'); });
+    var response = {
+        'success' : true,
+        'data' : null,
+        'message' : '',
+        'error' : null
+    };
+    src.on('end', function() {
+        response['message'] = 'File Uploaded!';
+        res.send(response);
+    });
+    src.on('error', function(err) {
+        response['message'] = 'Some error occurred while uploading! Kindly try again later!';
+        response['error'] = String(err);
+        res.send(response);
+    });
 });
 
 

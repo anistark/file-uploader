@@ -8,13 +8,9 @@ module.exports = {
         environment: process.env.environment || 'local',
         nameServer: 'http://localhost:3000'
     },
-    ses: {
+    aws: {
         accessKeyId: process.env.accessKeyId || '',
-        secretAccessKey: process.env.secretAccessKey || '',
-        emailFrom: '',
-        emailFromName: '',
-        region: 'us-east-1',
-        adminEmail: ''
+        secretAccessKey: process.env.secretAccessKey || ''
     },
     s3: {
         region: 'us-east-1',
