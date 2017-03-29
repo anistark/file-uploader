@@ -43,7 +43,7 @@ router.post('/upload', uploadType, function(req,res, next) {
         src.pipe(dest);
         fs.unlink(tmp_path); //deleting the tmp_path
         src.on('end', function () {
-            response['message'] = 'File Uploaded!';;
+            response['message'] = 'File Uploaded!';
             res.json(response);
         });
         src.on('error', function (err) {
