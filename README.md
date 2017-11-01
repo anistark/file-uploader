@@ -35,6 +35,9 @@ nodemon
 ```
 
 
+Make sure your file upload `Content-Type` / `enctype` is set to `multipart/form-data`
+
+
 ## [Postman Api Collection](1) for easy usage
 
 
